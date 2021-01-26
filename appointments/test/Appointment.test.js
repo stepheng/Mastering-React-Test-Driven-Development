@@ -4,8 +4,7 @@ import { Appointment } from '../src/Appointment'
 
 describe('Appointment', () => {
     it('renders the customer first name', () => {
-        const customer = { firstNMame: 'Ashley' }
-        const component = <Appointment customer={customer} />
+        const customer = { firstName: 'Ashley' }
         const container = document.createElement('div')
         document.body.appendChild(container)
 
@@ -14,14 +13,14 @@ describe('Appointment', () => {
         expect(container.textContent).toMatch('Ashley')
     })
 
-    it.skip('renders another customer first name', () => {
-        const customer = { firstNMame: 'Jordan' }
+    it('renders another customer first name', () => {
+        const customer = { firstName: 'Jordan' }
         const component = <Appointment customer={customer} />
         const container = document.createElement('div')
         document.body.appendChild(container)
 
-        ReactDOM.render(component, container)
+        ReactDOM.render(<Appointment customer={customer} />, container)
 
-        expect(document.body.textContent).toMatch('Jordan')
+        expect(container.textContent).toMatch('Jordan')
     })
 })
