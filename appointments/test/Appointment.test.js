@@ -55,8 +55,8 @@ describe('AppointmentsDayView', () => {
         render(<AppointmentsDayView appointments={appointments} />)
 
         expect(container.querySelector('ol')).not.toBeNull()
-        // expect (
-        //     container.querySelector('ol').children
-        // ).toHaveLength(2)
+        expect (
+            container.querySelector('ol').children
+        ).toHaveLength(2)
     })
 })
