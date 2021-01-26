@@ -3,9 +3,12 @@ import ReactDOM from 'react-dom'
 import { Appointment } from '../src/Appointment'
 
 describe('Appointment', () => {
+    let customer
+    let container
+
     it('renders the customer first name', () => {
-        const customer = { firstName: 'Ashley' }
-        const container = document.createElement('div')
+        customer = { firstName: 'Ashley' }
+        container = document.createElement('div')
         document.body.appendChild(container)
 
         ReactDOM.render(<Appointment customer={customer} />, container)
@@ -14,9 +17,8 @@ describe('Appointment', () => {
     })
 
     it('renders another customer first name', () => {
-        const customer = { firstName: 'Jordan' }
-        const component = <Appointment customer={customer} />
-        const container = document.createElement('div')
+        customer = { firstName: 'Jordan' }
+        container = document.createElement('div')
         document.body.appendChild(container)
 
         ReactDOM.render(<Appointment customer={customer} />, container)
