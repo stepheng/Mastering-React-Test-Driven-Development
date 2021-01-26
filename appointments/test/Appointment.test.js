@@ -66,7 +66,11 @@ describe('AppointmentsDayView', () => {
         ]
         render(<AppointmentsDayView appointments={appointments} />)
 
-        expect(container.querySelector('ol')).not.toBeNull()
-        expect(container.querySelectorAll('li')).toHaveLength(2)
+        const orderedList = container.querySelector('ol')
+        expect(orderedList).not.toBeNull()
+        const listItems = orderedList.querySelectorAll('li')
+        expect(listItems).toHaveLength(2)
+        expect(listItems[0].textContent).toEqual('12:00')
+        expect(listItems[1].textContent).toEqual('13:00')
     })
 })
