@@ -5,5 +5,7 @@ export const Appointment = ({ customer }) => (
 )
 
 export const AppointmentsDayView = () => (
-    <div id="appointmentsDayView"></div>
+    <div id="appointmentsDayView">
+        <ol />
+    </div>
 )
