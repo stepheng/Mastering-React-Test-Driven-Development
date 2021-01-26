@@ -10,20 +10,20 @@ describe('Appointment', () => {
         container = document.createElement('div')
     })
 
+    const render = component => ReactDOM.render(component, container)
+
     it('renders the customer first name', () => {
         customer = { firstName: 'Ashley' }
-        document.body.appendChild(container)
 
-        ReactDOM.render(<Appointment customer={customer} />, container)
+        render(<Appointment customer={customer} />)
 
         expect(container.textContent).toMatch('Ashley')
     })
 
     it('renders another customer first name', () => {
         customer = { firstName: 'Jordan' }
-        document.body.appendChild(container)
 
-        ReactDOM.render(<Appointment customer={customer} />, container)
+        render(<Appointment customer={customer} />)
 
         expect(container.textContent).toMatch('Jordan')
     })
