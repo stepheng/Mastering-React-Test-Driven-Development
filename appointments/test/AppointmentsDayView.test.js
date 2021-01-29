@@ -34,7 +34,7 @@ describe('Appointment', () => {
 
     it('renders customer name entry', () => {
         render(<Appointment customer={customer} />)
-        
+
         const firstRow = container.querySelector('#name')
         expect(firstRow.children).toHaveLength(2)
         expect(firstRow.querySelector('#title').textContent).toMatch('Customer')
@@ -42,38 +42,38 @@ describe('Appointment', () => {
     })
     it('renders customer phone number entry', () => {
         render(<Appointment customer={customer} />)
-        
+
         const firstRow = container.querySelector('#phone')
         expect(firstRow.children).toHaveLength(2)
         expect(firstRow.querySelector('#title').textContent).toMatch('Phone Number')
         expect(firstRow.querySelector('#value').textContent).toMatch('555-1234')
-    }) 
-    
+    })
+
     it('renders customer stylist entry', () => {
         render(<Appointment customer={customer} />)
-        
+
         const firstRow = container.querySelector('#stylist')
         expect(firstRow.children).toHaveLength(2)
         expect(firstRow.querySelector('#title').textContent).toMatch('Stylist')
         expect(firstRow.querySelector('#value').textContent).toMatch('Maggie')
-    })     
+    })
 
     it('renders customer service entry', () => {
         render(<Appointment customer={customer} />)
-        
+
         const firstRow = container.querySelector('#service')
         expect(firstRow.children).toHaveLength(2)
         expect(firstRow.querySelector('#title').textContent).toMatch('Service')
         expect(firstRow.querySelector('#value').textContent).toMatch('Trim')
-    })     
+    })
     it('renders customer notes entry', () => {
         render(<Appointment customer={customer} />)
-        
+
         const firstRow = container.querySelector('#notes')
         expect(firstRow.children).toHaveLength(2)
         expect(firstRow.querySelector('#title').textContent).toMatch('Notes')
         expect(firstRow.querySelector('#value').textContent).toMatch('Lorem ipsum')
-    })     
+    })
 })
 
 describe('AppointmentsDayView', () => {
@@ -86,11 +86,11 @@ describe('AppointmentsDayView', () => {
     const render = component => ReactDOM.render(component, container)
     const today = new Date()
     const appointments = [
-        { 
+        {
             startsAt: today.setHours(12, 0),
             customer: { firstName: 'Ashley' }
         },
-        { 
+        {
             startsAt: today.setHours(13, 0),
             customer: { firstName: 'Jordan' }
         }
@@ -109,7 +109,7 @@ describe('AppointmentsDayView', () => {
         expect(container.querySelector('ol').children).toHaveLength(2)
     })
 
-    it('renders each appointment in an li', () => {        
+    it('renders each appointment in an li', () => {
         render(<AppointmentsDayView appointments={appointments} />)
 
         const orderedList = container.querySelector('ol')

@@ -15,18 +15,18 @@ The book itself has checkpoints that are based on various tags. If you're follow
 You should fork and then clone this repo to your local machine, and then check out a tag:
 
     git checkout tags/starting-point
-  
+
 You should then branch from this tag before continuing with changes:
 
     git checkout -b starting-point-mine
-  
+
 # Merging in changes from additional commits
 
 Not all commits are covered in the book. They have been omitted because they are repetitive and teach nothing new. These occasions are clearly marked at the start of each section. You have two choices:
 
  * You can repeat the process above, starting a new branch and 'losing' all of your previous work in favor of the book's version. Of course, you'll still have the previous branch available that you were working on, it just won't join with your new branch.
  * You can merge in the commits that you were missing. This may not turn out to be straightforward if your code has deviated significantly from the book's code.
- 
+
 You can compare the difference between your current HEAD and the listed tag with `git diff`:
 
     git diff load-available-time-slots
@@ -36,7 +36,7 @@ You can then manually apply those changes.
 If you'd rather try to automate those changes, then you can use git merge:
 
     git merge load-available-time-slots
- 
+
  ## Get in touch
-  
+
 You can contact the author directly by raising Issues here in GitHub, or by contacting him on Twitter. He is [@d_ir](https://twitter.com/d_ir).
