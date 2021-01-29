@@ -2,34 +2,78 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import ReactTestUtils from 'react-dom/test-utils'
 import { Appointment,
-        AppointmentsDayView
-} from '../src/Appointment'
+        AppointmentsDayView,
+        AppointmentHeader
+} from '../src/AppointmentsDayView'
+import {sampleAppointments, SampleAppointments} from '../src/sampleData'
 
 describe('Appointment', () => {
     let customer
     let container
 
     beforeEach( () => {
+        customer = sampleAppointments[3].customer
         container = document.createElement('div')
     })
 
     const render = component => ReactDOM.render(component, container)
 
     it('renders the customer first name', () => {
-        customer = { firstName: 'Ashley' }
-
         render(<Appointment customer={customer} />)
 
         expect(container.textContent).toMatch('Ashley')
     })
 
     it('renders another customer first name', () => {
-        customer = { firstName: 'Jordan' }
+        customer = sampleAppointments[4].customer
 
         render(<Appointment customer={customer} />)
 
         expect(container.textContent).toMatch('Jordan')
     })
+
+    it('renders customer name entry', () => {
+        render(<Appointment customer={customer} />)
+        
+        const firstRow = container.querySelector('#name')
+        expect(firstRow.children).toHaveLength(2)
+        expect(firstRow.querySelector('#title').textContent).toMatch('Customer')
+        expect(firstRow.querySelector('#value').textContent).toMatch('Ashley Jordan')
+    })
+    it('renders customer phone number entry', () => {
+        render(<Appointment customer={customer} />)
+        
+        const firstRow = container.querySelector('#phone')
+        expect(firstRow.children).toHaveLength(2)
+        expect(firstRow.querySelector('#title').textContent).toMatch('Phone Number')
+        expect(firstRow.querySelector('#value').textContent).toMatch('555-1234')
+    }) 
+    
+    it('renders customer stylist entry', () => {
+        render(<Appointment customer={customer} />)
+        
+        const firstRow = container.querySelector('#stylist')
+        expect(firstRow.children).toHaveLength(2)
+        expect(firstRow.querySelector('#title').textContent).toMatch('Stylist')
+        expect(firstRow.querySelector('#value').textContent).toMatch('Maggie')
+    })     
+
+    it('renders customer service entry', () => {
+        render(<Appointment customer={customer} />)
+        
+        const firstRow = container.querySelector('#service')
+        expect(firstRow.children).toHaveLength(2)
+        expect(firstRow.querySelector('#title').textContent).toMatch('Service')
+        expect(firstRow.querySelector('#value').textContent).toMatch('Trim')
+    })     
+    it('renders customer notes entry', () => {
+        render(<Appointment customer={customer} />)
+        
+        const firstRow = container.querySelector('#notes')
+        expect(firstRow.children).toHaveLength(2)
+        expect(firstRow.querySelector('#title').textContent).toMatch('Notes')
+        expect(firstRow.querySelector('#value').textContent).toMatch('Lorem ipsum')
+    })     
 })
 
 describe('AppointmentsDayView', () => {
@@ -101,5 +145,10 @@ describe('AppointmentsDayView', () => {
         const button = container.querySelectorAll('button')[1]
         ReactTestUtils.Simulate.click(button)
         expect(container.textContent).toMatch('Jordan')
+    })
+
+    it('renders the header for the current appointment', () => {
+        render(<AppointmentHeader appointment={appointments[0]} />)
+        expect(container.textContent).toMatch('Today\'s appointment at 12:00')
     })
 })
