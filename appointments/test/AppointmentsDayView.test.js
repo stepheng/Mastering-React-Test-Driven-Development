@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import ReactTestUtils from 'react-dom/test-utils'
-import { Appointment,
-        AppointmentsDayView,
+import { AppointmentsDayView,
         AppointmentHeader
 } from '../src/AppointmentsDayView'
 import {sampleAppointments, SampleAppointments} from '../src/sampleData'
+import { Appointment } from '../src/Appointment'
 
 describe('Appointment', () => {
     let customer
