@@ -106,4 +106,14 @@ describe('CustomerForm', () => {
         itSavesExistingValueWhenSubmitted(fieldName)
         itSavesNewValueWhenSubmitted(fieldName, 'newLastName')
     })
+
+    describe('phone number field', () => {
+        const fieldName = 'phoneNumber'
+        itRendersAsATextBox(fieldName)
+        itIncludesTheExistingValue(fieldName)
+        itRendersALabel(fieldName, 'Phone number')
+        itAssignsAnIdThatMatchesTheLabelId(fieldName)
+        itSavesExistingValueWhenSubmitted(fieldName)
+        itSavesNewValueWhenSubmitted(fieldName, '012345')
+    })
 })
