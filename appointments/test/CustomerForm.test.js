@@ -22,7 +22,6 @@ describe('CustomerForm', () => {
     }
 
     const field = name => form('customer').elements[name]
-    const firstNameField = () => field('firstName')
     describe('first name field', () => {
         it('renders as a text box', () => {
             render(<CustomerForm />)
@@ -31,7 +30,7 @@ describe('CustomerForm', () => {
 
         it('includes the existing value', () => {
             render(<CustomerForm firstName="Ashley" />)
-            const inputField = firstNameField()
+            const inputField = field('firstName')
             expectToBeInputFieldOfTypeText(inputField)
             expect(inputField.value).toEqual('Ashley')
         })
@@ -72,7 +71,7 @@ describe('CustomerForm', () => {
                 }
             />
             )
-            await ReactTestUtils.Simulate.change( firstNameField(), {
+            await ReactTestUtils.Simulate.change( field('firstName'), {
                 target: { value: 'Jamie' }
             })
             await ReactTestUtils.Simulate.submit(form('customer'))
